@@ -1,0 +1,12 @@
+{
+  "name": "weave-spotlight",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "jco componentize src/service.js --wit wit --world-name marks --disable all -o spotlight.wasm"
+  },
+  "devDependencies": {
+    "@bytecodealliance/componentize-js": "^0.23.0",
+    "@bytecodealliance/jco": "^1.39.0"
+  }
+}
