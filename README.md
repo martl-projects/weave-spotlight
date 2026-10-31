@@ -18,6 +18,13 @@ A hint service Weave ships (docs/v2-stage20.md): it folds `weave.msg`, `weave.po
 
 Tones: yellow, green, blue, red, purple. Signs: heart, star, flag, bell.
 
+## Where it lives
+
+This repository is its only source. Weave ships it by pinning one of its releases (Weave's
+`packages/shipped/pinned.json`: this repository, a tag and the archive's SHA-256), so what Weave ships and what
+its project releases are the same file. A new version: tag it here, release it in its Weave project, then move
+the pin in Weave.
+
 ## Building and releasing
 
 ```
@@ -25,6 +32,8 @@ npm install
 npm run build              # → spotlight.wasm
 ```
 
-A tag `v*` builds it on GitHub and attaches `weave-spotlight.tar.gz` to a release (`.github/workflows/release.yml`). In Weave, `weave app release v1.0 --asset wasm=weave-spotlight.tar.gz -p <project>` records it in a project, with its SHA-256.
+A tag `v*` builds it on GitHub and attaches `weave-spotlight.tar.gz` (the component, `weave.app.json` and this README) to a
+release (`.github/workflows/release.yml`). In Weave, `weave app release <tag> --asset wasm=weave-spotlight.tar.gz -p <project>`
+records it in a project, with its SHA-256.
 
-Weave also ships this service, built from the same source (`packages/shipped/spotlight` in Weave's repository). Weave's own has the app id `weave-spotlight`, which no project's release may take; this repository's releases are `spotlight-hints`, released in the Weave project Spotlight.
+`wit/service.wit` is Weave's service interface (`packages/sdk/wit` in Weave's repository), copied here to build against.

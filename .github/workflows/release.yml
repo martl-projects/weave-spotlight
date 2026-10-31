@@ -1,7 +1,7 @@
 name: release
 
 # A tag (v1.0) builds the hint service into a WebAssembly component and attaches it to a GitHub release.
-# Then, in Weave: weave app release v1.0 --asset wasm=weave-spotlight.tar.gz -p <project>
+# Then, in Weave: weave app release <tag> --asset wasm=weave-spotlight.tar.gz -p <project>
 on:
   push:
     tags: ['v*']
@@ -19,7 +19,7 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npm run build
-      - run: tar czf weave-spotlight.tar.gz spotlight.wasm weave.app.json
+      - run: tar czf weave-spotlight.tar.gz spotlight.wasm weave.app.json README.md
       - run: gh release create "$GITHUB_REF_NAME" weave-spotlight.tar.gz --title "$GITHUB_REF_NAME" --notes "Built from $GITHUB_SHA"
         env:
           GH_TOKEN: ${{ github.token }}
