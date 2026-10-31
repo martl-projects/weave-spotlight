@@ -1,5 +1,5 @@
 {
-  "app": "weave-spotlight",
+  "app": "spotlight-hints",
   "name": "Spotlight",
   "hints": {
     "component": "spotlight.wasm",

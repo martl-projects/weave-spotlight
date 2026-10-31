@@ -27,4 +27,4 @@ npm run build              # → spotlight.wasm
 
 A tag `v*` builds it on GitHub and attaches `weave-spotlight.tar.gz` to a release (`.github/workflows/release.yml`). In Weave, `weave app release v1.0 --asset wasm=weave-spotlight.tar.gz -p <project>` records it in a project, with its SHA-256.
 
-Weave also ships this service, built from the same source (`packages/shipped/spotlight` in Weave's repository). Its app id (`weave-spotlight`) is Weave's own: a project's release can't take it, so a project releasing this one gives it an id of its own.
+Weave also ships this service, built from the same source (`packages/shipped/spotlight` in Weave's repository). Weave's own has the app id `weave-spotlight`, which no project's release may take; this repository's releases are `spotlight-hints`, released in the Weave project Spotlight.
